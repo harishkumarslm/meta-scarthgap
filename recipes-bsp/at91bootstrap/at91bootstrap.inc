@@ -31,6 +31,8 @@ AT91BOOTSTRAP_CONFIG_sama5d2-xplained-sd ??= "${AT91BOOTSTRAP_MACHINE}-bsrsd_ubo
 AT91BOOTSTRAP_CONFIG_sama5d2-ptc-ek-sd ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot"
 AT91BOOTSTRAP_CONFIG_sama5d27-som1-ek ??= "${AT91BOOTSTRAP_MACHINE}qspi_uboot"
 AT91BOOTSTRAP_CONFIG_sama5d27-som1-ek-sd ??= "${AT91BOOTSTRAP_MACHINE}sd_uboot"
+AT91BOOTSTRAP_CONFIG_rugged-board-a5d2x ??= "${AT91BOOTSTRAP_MACHINE}qspi_uboot"
+AT91BOOTSTRAP_CONFIG_rugged-board-a5d2x-sd1 ??= "${AT91BOOTSTRAP_MACHINE}sd1_uboot"
 
 AT91BOOTSTRAP_TARGET ??= "${AT91BOOTSTRAP_CONFIG}_defconfig"
 AT91BOOTSTRAP_LOAD ??= "nandflashboot-uboot"
@@ -42,6 +44,9 @@ AT91BOOTSTRAP_LOAD_sama5d27-som1-ek ??= "qspiboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d27-som1-ek-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d3-xplained-sd ??= "sdboot-uboot"
 AT91BOOTSTRAP_LOAD_sama5d4-xplained-sd ??= "sdboot-uboot"
+AT91BOOTSTRAP_LOAD_rugged-board-a5d2x ??= "qspiboot-uboot"
+AT91BOOTSTRAP_LOAD_rugged-board-a5d2x-sd1 ??= "sd1boot-uboot"
+
 
 AT91BOOTSTRAP_SUFFIX ?= "bin"
 AT91BOOTSTRAP_IMAGE ?= "${AT91BOOTSTRAP_MACHINE}-${AT91BOOTSTRAP_LOAD}-${PV}.${AT91BOOTSTRAP_SUFFIX}"
