@@ -1,6 +1,7 @@
 DESCRIPTION = "hello example"
 LICENSE = "CLOSED"
 SRC_URI = "file://data_lib.sh \
+	   file://interfaces \
 "
 
 S = "${WORKDIR}"
@@ -12,7 +13,7 @@ do_install(){
 	install -d ${D}/etc/init.d
 	install -d ${D}/usr/lib
 	install -d ${S}/../../../../deploy/images/rugged-board-a5d2x
-	install -d ${WORKDIR}/data-image/lib ${WORKDIR}/data-image/www/var
+	install -d ${WORKDIR}/data-image/lib ${WORKDIR}/data-image/www/var ${WORKDIR}/data-image/network
 	cp -r ${S}/data_lib.sh ${WORKDIR}/data-image/
 	cp -r ${S}/../../mraa-data/*/image/data/lib/libmraa.so.2.0.0 ${WORKDIR}/data-image/lib/
 	cp -r ${S}/../../mraa-data/*/git/build/examples/c/hellomraa ${WORKDIR}/data-image/
@@ -26,6 +27,9 @@ do_install(){
 	cp -r ${S}/../../lighttpd-data/*/build/src/.libs/mod_dirlisting.so ${WORKDIR}/data-image/lib/
 	cp -r ${S}/../../lighttpd-data/*/build/src/.libs/mod_indexfile.so ${WORKDIR}/data-image/lib/
 	cp -r ${S}/../../lighttpd-data/*/build/src/.libs/mod_staticfile.so ${WORKDIR}/data-image/lib/
+
+	#for network interface
+	cp -r ${S}/interfaces ${WORKDIR}/data-image/network/
 
 	/usr/sbin/mkfs.jffs2 -lnp --root=${WORKDIR}/data-image --eraseblock=0x10000 -p -o ${S}/../../../../deploy/images/rugged-board-a5d2x/data-image-rootfs.jffs2
 }
