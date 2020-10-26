@@ -1,5 +1,6 @@
 SUMMARY = "A small image just capable of allowing a device to boot."
 
+IMAGE_FEATURES += "ssh-server-openssh package-management"
 IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL} \
 		sqlite3 \
 		mraa \
