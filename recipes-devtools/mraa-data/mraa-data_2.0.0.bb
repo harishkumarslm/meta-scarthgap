@@ -9,6 +9,7 @@ SRC_URI = "git://github.com/intel-iot-devkit/mraa.git"
 SRC_URI += "file://0001-added-support-for-AM5D27-Rugged-board.patch \
           file://0002-pwm_support_sama5d2.patch \
           file://0001-added-support-for-adc-in-mikrobus.patch \
+          file://0003-added-support-for-uart3-and-gpios.patch \
           file://0001-FindNodejs.cmake-parse-V8_MAJOR_VERSION-from-nodejs-.patch"
 SRCREV = "967585c9ea0e1a8818d2172d2395d8502f6180a2"
 
