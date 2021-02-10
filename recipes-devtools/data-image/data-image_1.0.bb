@@ -2,6 +2,7 @@ DESCRIPTION = "hello example"
 LICENSE = "CLOSED"
 SRC_URI = "file://data_lib.sh \
 	   file://interfaces \
+	   file://env.sh \
 "
 
 S = "${WORKDIR}"
@@ -30,6 +31,9 @@ do_install(){
 
 	#for network interface
 	cp -r ${S}/interfaces ${WORKDIR}/data-image/network/
+
+	#for startup application env file
+	cp -r ${S}/env.sh ${WORKDIR}/data-image/env.sh
 
 	/usr/sbin/mkfs.jffs2 -lnp --root=${WORKDIR}/data-image --eraseblock=0x10000 -p -o ${S}/../../../../deploy/images/rugged-board-a5d2x/data-image-rootfs.jffs2
 }
