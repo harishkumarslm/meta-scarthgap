@@ -1,9 +1,13 @@
 # Atmel SAMA5 defaults
 require conf/machine/include/soc-family.inc
-require conf/machine/include/tune-cortexa5.inc
+require conf/machine/include/arm/tune-cortexa5.inc
 require conf/machine/include/bootloaders.inc
 
 SOC_FAMILY = "sama5"
+
+TUNE_FEATURES = "arm vfp cortexa5 thumb neon callconvention-hard"
+TARGET_FPU = "hard"
+ARMPKGARCH = "cortexa5"
 
 PREFERRED_PROVIDER_virtual/kernel_sama5 ?= "linux-rba5d2x"
 PREFERRED_PROVIDER_virtual/bootloader_sama5 ?= "uboot-rba5d2x"
