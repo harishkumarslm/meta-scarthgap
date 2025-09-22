@@ -1,17 +1,21 @@
-DESCRIPTION = "Copying the wifi firmware files and modules"
-SECTION = "firmware libs"
+DESCRIPTION = "Microchip WILC3000 Wi-Fi and Bluetooth firmware files"
+SECTION = "firmware"
 LICENSE = "CLOSED"
+PR = "r1"
 
-SRC_URI = "file://*"
+SRC_URI = "file://firmware/mchp/wilc3000_wifi_firmware.bin \
+           file://firmware/mchp/wilc3000_ble_firmware.bin \
+           file://firmware/mchp/wilc3000_ble_firmware_no_rtc.bin"
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/firmware"
 
 do_install() {
-             install -d ${D}${libdir}
-             install -d ${D}/lib/firmware
-             cp -r ${S}/firmware/* ${D}/lib/firmware/
+    install -d ${D}${nonarch_base_libdir}/firmware/mchp
+    install -m 0644 ${S}/mchp/wilc3000_wifi_firmware.bin ${D}${nonarch_base_libdir}/firmware/mchp/
+    install -m 0644 ${S}/mchp/wilc3000_ble_firmware.bin ${D}${nonarch_base_libdir}/firmware/mchp/
+    install -m 0644 ${S}/mchp/wilc3000_ble_firmware_no_rtc.bin ${D}${nonarch_base_libdir}/firmware/mchp/
 }
 
-FILES_${PN} += "lib/firmware/*"
+FILES_${PN} = "${nonarch_base_libdir}/firmware/mchp/*"
 
 INSANE_SKIP_${PN} = "ldflags installed-vs-shipped"

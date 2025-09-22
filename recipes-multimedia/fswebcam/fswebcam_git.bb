@@ -1,16 +1,14 @@
 DESCRIPTION = "Webcam image grabber and manipulation application."
 SECTION = "graphics"
 HOMEPAGE = "http://www.sanslogic.co.uk/fswebcam/"
-LICENSE="GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=393a5ca445f6965873eca0259a17f833"
 
 DEPENDS = "gd"
 
-PR = "r0"
-
 inherit autotools-brokensep
 
-SRCREV="c417cd8588f93f3f6c4fc687c2cb8f0f9d70b9b0"
-SRC_URI = "git://github.com/fsphil/fswebcam.git;protocol=git"
+SRCREV = "c515c9adebe5422885a653eba21bf27622ee3fc8"
+SRC_URI = "git://github.com/fsphil/fswebcam.git;protocol=https"
 
 S = "${WORKDIR}/git"

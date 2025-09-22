@@ -1,16 +1,13 @@
+# File: can-utils_git.bb
+
 SUMMARY = "Linux CAN network development utilities"
-DESCRIPTION = "Linux CAN network development"
+HOMEPAGE = "https://github.com/linux-can/can-utils"
+SECTION = "console/network"
 LICENSE = "GPLv2 & BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://include/linux/can.h;endline=43;md5=390a2c9a3c5e3595a069ac1436553ee7"
-
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1795fa5a6cded96a089c3b09c6077baa"
 DEPENDS = "libsocketcan"
-
-SRC_URI = "git://github.com/linux-can/${BPN}.git;protocol=git;branch=master"
-SRCREV = "4c8fb05cb4d6ddcd67299008db54af423f86fd05"
-
-PV = "0.0+gitr${SRCPV}"
-
+SRC_URI = "git://github.com/linux-can/can-utils.git;protocol=https;branch=master"
+SRCREV = "01083a64ebf28cc716efe2d2fd51c141042ae34b"  # commit for 2025.01 release[web:98][web:110]
 S = "${WORKDIR}/git"
-
 inherit autotools pkgconfig
-
+RDEPENDS:${PN} += "iproute2"

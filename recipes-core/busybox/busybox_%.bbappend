@@ -1,4 +1,3 @@
-SRC_URI += "file://fragment.cfg;subdir=busybox-1.24.1"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
-
+SRC_URI:append = " file://fragment.cfg;subdir=busybox-1.36.1"
